@@ -28,6 +28,11 @@ struct FFlowTrackExecutionToken final : IMovieSceneExecutionToken
 		{
 			for (UObject* EventReceiver : Player.GetEventContexts())
 			{
+				if (UFlowNode* FlowNodeBase = Cast<UFlowNode>(EventReceiver))
+				{
+					FlowNodeBase->TriggerOutput(*EventName, false);
+				}
+				else
 				if (UFlowNode_PlayLevelSequence* FlowNode = Cast<UFlowNode_PlayLevelSequence>(EventReceiver))
 				{
 					FlowNode->TriggerEvent(EventName);

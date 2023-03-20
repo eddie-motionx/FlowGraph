@@ -34,6 +34,12 @@ class FLOW_API UFlowNode : public UObject, public IVisualLoggerDebugSnapshotInte
 	friend class SFlowInputPinHandle;
 	friend class SFlowOutputPinHandle;
 
+	friend struct FFlowTrackExecutionToken;
+#if WITH_EDITOR
+public:
+	static bool IsFriendWithFlowTrackExecutionToken() { return true; }
+#endif
+
 //////////////////////////////////////////////////////////////////////////
 // Node
 

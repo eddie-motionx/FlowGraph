@@ -651,6 +651,24 @@ void FFlowAssetEditor::SelectSingleNode(UEdGraphNode* Node) const
 	FocusedGraphEditor->SetNodeSelection(Node, true);
 }
 
+void FFlowAssetEditor::MXJumpToInnerObj(UObject* InnerObject)
+{
+	if (!FocusedGraphEditor.IsValid())
+	{
+		return;
+	}
+
+	const UFlowNode* FlowNode = Cast<UFlowNode>(InnerObject);
+
+	if (!FlowNode)
+	{
+		return;
+	}
+
+	FocusedGraphEditor->JumpToNode(FlowNode->GetGraphNode(),
+		/*bRequestRename=*/false, /*bSelectNode=*/true);
+}
+
 #if ENABLE_JUMP_TO_INNER_OBJECT
 void FFlowAssetEditor::JumpToInnerObject(UObject* InnerObject)
 {

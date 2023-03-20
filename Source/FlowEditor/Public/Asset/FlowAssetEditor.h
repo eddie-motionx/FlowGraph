@@ -139,6 +139,8 @@ protected:
 public:
 	virtual void SelectSingleNode(UEdGraphNode* Node) const;
 
+	void MXJumpToInnerObj(UObject* InnerObject);
+
 #if ENABLE_JUMP_TO_INNER_OBJECT
 	// FAssetEditorToolkit
 	virtual void JumpToInnerObject(UObject* InnerObject) override;

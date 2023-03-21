@@ -99,8 +99,7 @@ protected:
 	virtual void OnSave_Implementation() override;
 	virtual void OnLoad_Implementation() override;
 
-private:
-	void TriggerEvent(const FString& EventName);
+	virtual void TriggerEvent(const FString& EventName) override;
 
 public:
 	void OnTimeDilationUpdate(const float NewTimeDilation);

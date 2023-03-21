@@ -39,6 +39,8 @@ class FLOW_API UFlowNode : public UObject, public IVisualLoggerDebugSnapshotInte
 public:
 	static bool IsFriendWithFlowTrackExecutionToken() { return true; }
 #endif
+protected:
+	virtual void TriggerEvent(const FString& EventName) {}
 
 //////////////////////////////////////////////////////////////////////////
 // Node
